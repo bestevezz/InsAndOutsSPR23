@@ -1,4 +1,17 @@
 //Rainbow Tunnels by Bryan Estevez
+
+float wOut1 = 255;
+float wOut2 = 255;
+float wOut3 = 255;
+float wOut4 = 255;
+float wOut5 = 255;
+float wOut6 = 255;
+float wOut7 = 255;
+float wOut8 = 255;
+float r = 0;
+float g = 0;
+float b = 0;
+//float ranCol = random(0,255);
 void setup(){
 size(1080,720);
 background(0,0,0);
@@ -7,15 +20,7 @@ background(0,0,0);
 void draw(){
 int cyLength = 510;
 int cyWidth = 80;
-int wOut1 = 255;
-int wOut2 = 255;
-int wOut3 = 255;
-int wOut4 = 255;
-int wOut5 = 255;
-int wOut6 = 255;
-int wOut7 = 255;
-int wOut8 = 255;
-float ranCol = random(0,255);
+
 
 //Interactivity of mouse position
 if ((mouseX >= 10) && (mouseX <= 510) && (mouseY >=5) && (mouseY <=80)){
@@ -46,16 +51,7 @@ if ((mouseX >= 10) && (mouseX <= 510) && (mouseY >=5) && (mouseY <=80)){
   }
   
 //random color picker
-if (mousePressed == true){
-    wOut1 = (int)ranCol;
-    wOut2 = (int)ranCol;
-    wOut3 = (int)ranCol;
-    wOut4 = (int)ranCol;
-    wOut5 = (int)ranCol;
-    wOut6 = (int)ranCol;
-    wOut7 = (int)ranCol;
-    wOut8 = (int)ranCol;
-} else if (keyPressed == true) {
+ if (keyPressed == true) {
   background(255,255,255);
   } else if (keyPressed == false) {
   background(0,0,0);
@@ -72,42 +68,42 @@ if (mousePressed == true){
 
 //Cylinder 1
 noStroke();
-fill(255,153,153,210);
+fill(r+255,g+153,b+153,210);
 rect(10,10,cyLength,cyWidth);
 
 //Cylinder 2
 noStroke();
-fill(250,159,120,210);
+fill(r+250,g+159,b+120,210);
 rect(560,100,cyLength,cyWidth);
 
 //Cylinder 3
 noStroke();
-fill(250, 239, 120,210);
+fill(r+250,g+ 239,b+ 120,210);
 rect(10,190,cyLength,cyWidth);
 
 //Cylinder 4
 noStroke();
-fill(170, 250, 120,210);
+fill(r+170,g+250,b+ 120,210);
 rect(560,280,cyLength,cyWidth);
 
 //Cylinder 5
 noStroke();
-fill(120, 250, 194,210);
+fill(r+120, b+250,b+ 194,210);
 rect(10,370,cyLength,cyWidth);
 
 //Cylinder 6
 noStroke();
-fill(120, 179, 250,210);
+fill(r+120,g+179,b+250,210);
 rect(560,460,cyLength,cyWidth);
 
 //Cylinder 7
 noStroke();
-fill(165, 120, 250,210);
+fill(r+165,g+120,b+250,210);
 rect(10,550,cyLength,cyWidth);
 
 //Cylinder 8
 noStroke();
-fill(244, 120, 250,210);
+fill(r+244,g+120,b+250,210);
 rect(560,640,cyLength,cyWidth);
 
 
@@ -289,4 +285,11 @@ ellipse(1040,680,20,79);
 ellipse(1070,680,20,79);
 
   
+}
+
+void mousePressed(){
+    r = random(0,255);
+    g = random(0,255);
+    b = random(0,255);
+
 }
