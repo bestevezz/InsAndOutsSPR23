@@ -132,12 +132,12 @@ void keyPressed(){
         noseHairLgnth2+=10;
       }
       else if((keyCode == DOWN) && (keyPressedAmt == noseHair-1)){
-        noseHairLgnth+=15;
-        noseHairLgnth2+=15;
+        noseHairLgnth+=17;
+        noseHairLgnth2+=17;
       }
       else if((keyCode == DOWN) && (keyPressedAmt == noseHair)){
-        noseHairLgnth+=25;
-        noseHairLgnth2+=25;
+        noseHairLgnth+=30;
+        noseHairLgnth2+=30;
         scene=3;
       }
     } 
@@ -182,7 +182,7 @@ void doScene1(){
   //If the eye is clickec anywhere on it, it will change to red
   if ((eyePlace == 0) && (eyePlace2 == 0) 
   && (eyePlace3 == 0)){
-    scene=2;   
+    scene=2;
     doScene2();   
   }
 }
@@ -232,6 +232,9 @@ void doScene3(){
       fill(255,20,255);
       text(time + " was your score! Press r to replay.",400,400);
       //resetting random here so it will change when game is replayed
+      eyePlace=255;
+      eyePlace2=255;
+      eyePlace3=255;
       circleX = random(200,600);
       circleY = random(200,600);
       circleX2 = random(200,600);
