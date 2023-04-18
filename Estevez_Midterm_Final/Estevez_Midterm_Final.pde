@@ -97,12 +97,22 @@ void mousePressed() {
     && (mouseY >= 540) && (mouseY<=640)){
       scene=1;
   }
+  if((mousePressed==true) && (mouseX >= circleX-50) && (mouseX <= circleX+50)
+    && (mouseY >= circleY-50) && (mouseY <= circleY+50)){
+      eyePlace=0;
+      createEye(redEye,circleX,circleY,eyePlace);
+    }
+    else if((mousePressed==true) && (mouseX >= circleX2-50) && (mouseX <= circleX2+50)
+    && (mouseY >= circleY2-50) && (mouseY <= circleY2+50)) {
+      eyePlace2=0;
+     createEye(redEye,circleX2,circleY2,eyePlace); 
+    }
+    else if((mousePressed==true) && (mouseX >= circleX3-50) && (mouseX <= circleX3+50)
+    && (mouseY >= circleY3-50) && (mouseY <= circleY3+50)) {
+     eyePlace3=0;
+     createEye(redEye,circleX3,circleY3,eyePlace); 
+    }
   //Once all eyes are red, proceed to scene 2 
-  else if ((eyePlace == 0) && (eyePlace2 == 0) 
-  && (eyePlace3 == 0)){
-    scene=2;   
-    doScene2();   
-  }
   //Calls score screen once the nosehair has reached desired length
   else if((noseHairLgnth==495) && (noseHairLgnth2==550)){
    doScene3(); 
@@ -122,12 +132,12 @@ void keyPressed(){
         noseHairLgnth2+=10;
       }
       else if((keyCode == DOWN) && (keyPressedAmt == noseHair-1)){
-        noseHairLgnth+=15;
-        noseHairLgnth2+=15;
+        noseHairLgnth+=17;
+        noseHairLgnth2+=17;
       }
       else if((keyCode == DOWN) && (keyPressedAmt == noseHair)){
-        noseHairLgnth+=25;
-        noseHairLgnth2+=25;
+        noseHairLgnth+=30;
+        noseHairLgnth2+=30;
         scene=3;
       }
     } 
@@ -170,21 +180,11 @@ void doScene1(){
   createEye(redEye,circleX2,circleY2,eyePlace2);
   createEye(redEye,circleX3,circleY3,eyePlace3);
   //If the eye is clickec anywhere on it, it will change to red
-  if((mousePressed==true) && (mouseX >= circleX-50) && (mouseX <= circleX+50)
-    && (mouseY >= circleY-50) && (mouseY <= circleY+50)){
-      eyePlace=0;
-      createEye(redEye,circleX,circleY,eyePlace);
-    }
-    else if((mousePressed==true) && (mouseX >= circleX2-50) && (mouseX <= circleX2+50)
-    && (mouseY >= circleY2-50) && (mouseY <= circleY2+50)) {
-      eyePlace2=0;
-     createEye(redEye,circleX2,circleY2,eyePlace); 
-    }
-    else if((mousePressed==true) && (mouseX >= circleX3-50) && (mouseX <= circleX3+50)
-    && (mouseY >= circleY3-50) && (mouseY <= circleY3+50)) {
-     eyePlace3=0;
-     createEye(redEye,circleX3,circleY3,eyePlace); 
-    }
+  if ((eyePlace == 0) && (eyePlace2 == 0) 
+  && (eyePlace3 == 0)){
+    scene=2;
+    doScene2();   
+  }
 }
 
 //Nose pluck scene
@@ -232,6 +232,9 @@ void doScene3(){
       fill(255,20,255);
       text(time + " was your score! Press r to replay.",400,400);
       //resetting random here so it will change when game is replayed
+      eyePlace=255;
+      eyePlace2=255;
+      eyePlace3=255;
       circleX = random(200,600);
       circleY = random(200,600);
       circleX2 = random(200,600);
