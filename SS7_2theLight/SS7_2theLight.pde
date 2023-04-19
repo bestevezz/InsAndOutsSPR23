@@ -57,7 +57,7 @@ if (val <= 50){
     bg = 255;
 }
 
-background(bg,bg,bg);
+background(val,val,val);
 //Interactivity of mouse position
 if ((mouseX >= 10) && (mouseX <= 510) && (mouseY >=5) && (mouseY <=80)){
   wOut1 = 0;
