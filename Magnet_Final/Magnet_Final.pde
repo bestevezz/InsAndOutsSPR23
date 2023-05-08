@@ -1,5 +1,5 @@
-int playX = 0;
-int playY = 550;
+int pcX = 0;
+int pcY = 550;
 int red = 0;
 int blue = 255;
 int floor = 590;
@@ -19,20 +19,22 @@ void draw(){
   fill(0,0,0);
   rect(0,580,900,700);
   fill(red,0,blue);
-  rect(playX,playY,30,30);
-  println(playX,playY);
-  if((red == 255) && (playX >= 450) && (playX<=630)){
-   playY-=20;
-   if(playY<=90){
-     playY = 90;
+  rect(pcX,pcY,30,30);
+  println(pcX,pcY);
+  if((red == 255) && (pcX >= 450) && (pcX<=565)){
+   pcY-=20;
+   if(pcY<=90){
+     pcY = 90;
    }
+  } else if((red == 255) && (pcX >= 630) && (pcY == 90)){
+    pcX=630;
   }
-  if((blue == 255) && (playX >= 450) && (playX<=630)){
-   playY+=20;
-   if(playY>=550){
-     playY = 550;
-   } else if((playX>=620) && (playX<=650) && (playY<=550)){
-     playY=190;
+  if((blue == 255) && (pcX >= 450) && (pcX<=630)){
+   pcY+=20;
+   if(pcY>=550){
+     pcY = 550;
+   } else if((pcX>=565) && (pcX<=650) && (pcY<=550)){
+     pcY=190;
      }
   }
 }
@@ -45,11 +47,11 @@ void keyPressed(){
   }
   
   if(keyCode == RIGHT){
-    playX+=10;
-  }
-    if(playX == 900){
-     playX = -5; 
+    pcX+=10;
+    if(pcX == 900){
+     pcX = -10; 
     }
+  }
    if(keyCode == DOWN){
     blue = 255;
     red = 0;
