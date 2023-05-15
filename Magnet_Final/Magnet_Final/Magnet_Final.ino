@@ -6,9 +6,10 @@
 const int irSensor = 8;
 const int magSensor = 7;
 const int tiltSensor = 12;
-int tiltState = 0;
-int magState = 0;
-int irSensorState = 0;
+int tiltVal = 0;
+int magVal = 0;
+int irVal = 0;
+int sensorVal = 0;
 
 void setup() {
   pinMode(irSensor,INPUT);
@@ -18,16 +19,25 @@ void setup() {
 }
 
 void loop() {
-  irSensorState = digitalRead(irSensor);
-  magState = digitalRead(magSensor);
-  tiltState = digitalRead(tiltSensor);
-  delay(10);
+  irVal = digitalRead(irSensor);
+  magVal = digitalRead(magSensor);
+  tiltVal = digitalRead(tiltSensor);
+  delay(100);
 
-  if(tiltState == HIGH){
-    Serial.println(1);
+  if ((magVal == HIGH) && (irVal == HIGH)){
+    sensorVal = 0;
+    Serial.write(sensorVal);
+  } else if((magVal == LOW) && (irVal == HIGH)){
+    sensorVal = 1;
+    Serial.write(sensorVal);
+  } else if ((magVal == LOW) && (irVal == LOW)){
+    sensorVal = 2;
+    Serial.write(sensorVal);
+  } else if ((magVal == HIGH) && (irVal == LOW)){
+    sensorVal = 3;
+    Serial.write(sensorVal);
   }
-  else if(tiltState == LOW){
-    Serial.println(0);
-  }
+
+
  
 }
